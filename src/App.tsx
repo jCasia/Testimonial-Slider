@@ -3,24 +3,32 @@ import { data } from './data';
 import CardSlider from './components/CardSlider';
 
 const App: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
 
   type SlideFunc = () => void;
 
   const nextSlide: SlideFunc = () => {
-    console.log('Next');
+    const newSlideIndex =
+      currentSlideIndex === data.length - 1 ? 0 : currentSlideIndex + 1;
+    setCurrentSlideIndex(newSlideIndex);
   };
 
   const backSlide: SlideFunc = () => {
-    console.log('Back');
+    const newSlideIndex =
+      currentSlideIndex === 0 ? data.length - 1 : currentSlideIndex - 1;
+    setCurrentSlideIndex(newSlideIndex);
   };
 
   return (
     <main className="font-Inter max-w-full min-h-screen bg-[url('./images/pattern-curve.svg')] bg-contain bg-no-repeat bg-bottom grid place-items-center">
       <div className='mx-7 flex flex-col gap-10 relative '>
-        {data.map((item) => {
-          return <CardSlider {...item} key={item.id} />;
-        })}
+        <CardSlider
+          {...data[currentSlideIndex]}
+          key={data[currentSlideIndex].id}
+          nextSlide={nextSlide}
+          backSlide={backSlide}
+        />
+        ;
       </div>
     </main>
   );

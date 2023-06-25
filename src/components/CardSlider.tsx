@@ -5,19 +5,21 @@ import leftArrow from '../images/icon-prev.svg';
 import rightArrow from '../images/icon-next.svg';
 
 interface CardSliderProps {
-  id: number;
-  img: string;
   text: string;
   name: string;
   job: string;
+  img: string;
+  nextSlide: () => void;
+  backSlide: () => void;
 }
 
 const CardSlider: React.FC<CardSliderProps> = ({
-  id,
   text,
   name,
   job,
   img,
+  nextSlide,
+  backSlide,
 }) => {
   return (
     <>
@@ -34,8 +36,8 @@ const CardSlider: React.FC<CardSliderProps> = ({
         />
         <div className='absolute bottom-0 translate-y-1/2 drop-shadow-lg'>
           <button
-            // onClick={backSlide}
-            className=' px-3.5 py-2.5 rounded-l-3xl bg-white '
+            onClick={backSlide}
+            className=' px-3.5 py-2.5 rounded-l-3xl bg-white cursor-pointer '
           >
             <img
               src={leftArrow}
@@ -44,8 +46,8 @@ const CardSlider: React.FC<CardSliderProps> = ({
             />
           </button>
           <button
-            // onClick={nextSlide}
-            className=' p-3.5 py-2.5 rounded-r-3xl  bg-white '
+            onClick={nextSlide}
+            className=' p-3.5 py-2.5 rounded-r-3xl  bg-white cursor-pointer '
           >
             <img
               src={rightArrow}
