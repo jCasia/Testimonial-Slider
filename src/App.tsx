@@ -34,6 +34,7 @@ const App: React.FC = () => {
         src={curveBg}
         alt='background curve'
         className='absolute bottom-0 left-0 -z-10'
+        aria-hidden='true'
       />
     </main>
   );

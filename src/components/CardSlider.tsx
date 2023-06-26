@@ -33,11 +33,13 @@ const CardSlider: React.FC<CardSliderProps> = ({
           src={patternBg}
           alt='background image'
           className='absolute -z-10 w-full tabletmd:w-3/4 tabletlg:w-full laptopmd:min-w-[130%]'
+          aria-hidden='true'
         />
         <div className='absolute bottom-0 translate-y-1/2 drop-shadow-lg laptopmd:left-1/4 laptopmd:-translate-x-3/4'>
           <button
             onClick={backSlide}
             className=' px-3.5 py-2.5 rounded-l-3xl bg-white cursor-pointer laptop:px-5 laptop:py-4'
+            aria-label='Back'
           >
             <img
               src={leftArrow}
@@ -48,6 +50,7 @@ const CardSlider: React.FC<CardSliderProps> = ({
           <button
             onClick={nextSlide}
             className=' p-3.5 py-2.5 rounded-r-3xl bg-white cursor-pointer laptop:px-5 laptop:py-4'
+            aria-label='Next'
           >
             <img
               src={rightArrow}
