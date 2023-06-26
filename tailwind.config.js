@@ -11,6 +11,13 @@ export default {
         Inter: ['Inter', 'sans-serif'],
       },
     },
+    screens: {
+      tabletsm: '500px',
+      tabletmd: '565px',
+      tabletlg: '720px',
+      laptop: '1024px',
+      laptopmd: '1440px',
+    },
   },
   plugins: [],
 };
